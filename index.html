@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Leandro — Java/Spring Portfolio</title>
+  <meta name="description" content="Backend dev focusing on Java, Spring Cloud, and microservices." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#0f172a; --card:#111827; --text:#e5e7eb; --muted:#9ca3af; --accent:#22d3ee; }
+    *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,Arial;background:linear-gradient(120deg,#0f172a,#0b1022);color:var(--text)}
+    .wrap{max-width:980px;margin:0 auto;padding:48px 20px}
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .badge{padding:6px 10px;border:1px solid #334155;border-radius:999px;color:var(--muted);font-size:12px}
+    h1{font-size:42px;line-height:1.1;margin:24px 0}
+    p.lead{color:var(--muted);max-width:70ch}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px;margin-top:28px}
+    .card{background:var(--card);border:1px solid #1f2937;border-radius:16px;padding:18px;transition:.2s transform,.2s box-shadow}
+    .card:hover{transform:translateY(-4px);box-shadow:0 10px 30px rgba(0,0,0,.25)}
+    .card h3{margin:8px 0 6px}
+    a{color:var(--accent);text-decoration:none}
+    footer{margin-top:48px;color:var(--muted);font-size:14px}
+    .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .tag{border:1px solid #374151;border-radius:999px;padding:4px 8px;font-size:12px;color:#cbd5e1}
+    .cta{display:inline-block;margin-top:14px;padding:10px 14px;border-radius:10px;background:#0b1220;border:1px solid #334155}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="badge">Open to work • Backend Java</div>
+      <nav><a href="#projects">Projects</a> · <a href="#about">About</a> · <a href="#contact">Contact</a></nav>
+    </header>
+
+    <h1>Hi, I'm Leandro 👋</h1>
+    <p class="lead">Backend developer focused on <strong>Java + Spring Cloud</strong>. I like building clean microservice stacks: Config Server, Eureka, Gateway, and resilient services.</p>
+
+    <section id="projects">
+      <h2>Featured projects</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Microstack Spring (Study)</h3>
+          <p>Mini ambiente de microserviços: Config Server, Eureka, API Gateway e demo-service.</p>
+          <div class="tags">
+            <span class="tag">Java</span><span class="tag">Spring Boot</span><span class="tag">Spring Cloud</span>
+          </div>
+          <a class="cta" href="https://github.com/leandrocustodiop/microstack-spring" target="_blank" rel="noreferrer">View on GitHub →</a>
+        </article>
+
+        <article class="card">
+          <h3>API Gateway Routes</h3>
+          <p>Exemplo de roteamento estático e via discovery locator, com filtros e rate limit.</p>
+          <div class="tags">
+            <span class="tag">Spring Cloud Gateway</span><span class="tag">YAML</span>
+          </div>
+          <a class="cta" href="#" target="_blank" rel="noreferrer">Demo →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="about">
+      <h2>About</h2>
+      <p>Curioso por arquitetura, observabilidade e DX. Estudo diário com projetos práticos.</p>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p><a href="mailto:leancp@gmail.com">leancp@gmail.com</a> · <a href="https://www.linkedin.com/in/leandrocustodiop/">LinkedIn</a></p>
+    </section>
+
+    <footer>© <span id="y"></span> Leandro. Hosted on GitHub Pages.</footer>
+  </div>
+  <script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>
