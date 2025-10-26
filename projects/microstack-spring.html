@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Microstack Spring — Microservices Foundation with Spring Cloud</title>
+  <meta name="description" content="A microservices foundation built with Spring Cloud, including Config Server, Eureka, API Gateway, and demo service" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <nav><a href="../index.html">← Back to Portfolio</a></nav>
+    </header>
+
+    <h1>Microstack Spring</h1>
+    <p class="lead">An educational microservices environment built with Spring Cloud, demonstrating key concepts of distributed systems architecture.</p>
+
+    <section>
+      <h2>Project Overview</h2>
+      <div class="project-images">
+        <img src="../assets/img/microstack_spring/microstack_spring_1.png" alt="Microstack Spring architecture" class="project-image">
+        <img src="../assets/img/microstack_spring/microstack_spring_2.png" alt="Eureka Dashboard" class="project-image">
+      </div>
+      <p>Microstack Spring is a microservices foundation built with Spring Cloud. The project provides a scalable, production-ready architecture ideal for learning and implementing distributed architecture concepts.</p>
+    </section>
+
+    <section>
+      <h2>Key Components</h2>
+      
+      <h3>Config Server (Port: 8888)</h3>
+      <p>Centralized configuration server that manages all services configurations. Configurations are stored in the <code>config-repo</code> directory, enabling dynamic updates without service restarts.</p>
+      
+      <h3>Eureka Server (Port: 8761)</h3>
+      <p>Service discovery server that registers and monitors all microservices. Features a web interface accessible at <code>http://localhost:8761</code> for service status monitoring.</p>
+      
+      <h3>API Gateway (Port: 8080)</h3>
+      <p>Single entry point for all services, implementing dynamic routing based on registered services. Built with Spring Cloud Gateway to provide advanced routing and filtering capabilities.</p>
+      
+      <h3>Demo Service (Port: 8081)</h3>
+      <p>Example service demonstrating complete integration with Config Server and Eureka. Serves as a foundation and reference for creating new services in the ecosystem.</p>
+    </section>
+
+    <section>
+      <h2>Technical Stack</h2>
+      <div class="tags">
+        <span class="tag">Java 21</span>
+        <span class="tag">Spring Cloud</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Maven</span>
+        <span class="tag">Netflix Eureka</span>
+        <span class="tag">Spring Cloud Config</span>
+        <span class="tag">Spring Cloud Gateway</span>
+      </div>
+      
+      <h3>Architecture Overview</h3>
+      <pre>
+[Client] -> [API Gateway (8080)] -> [Services (8081+)]
+                   ⬆
+    [Eureka (8761)] ← [Config Server (8888)]</pre>
+    </section>
+
+    <section>
+      <h2>Getting Started</h2>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>Docker and Docker Compose</li>
+        <li>Java 21</li>
+        <li>Maven</li>
+      </ul>
+
+      <h3>Running the Project</h3>
+      <p>Execute the following command to start all services:</p>
+      <pre>docker-compose up --build</pre>
+    </section>
+
+    <section>
+      <h2>Adding New Services</h2>
+      <p>To add a new service to the stack, follow these steps:</p>
+      
+      <h3>1. Create Maven Module</h3>
+      <pre>mvn archetype:generate -DgroupId=com.microstack -DartifactId=new-service</pre>
+
+      <h3>2. Add Dependencies</h3>
+      <p>Add to <code>pom.xml</code>:</p>
+      <pre>
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-netflix-eureka-client&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-cloud-starter-config&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;</pre>
+
+      <h3>3. Configure Service</h3>
+      <p>Create <code>config-repo/new-service.yml</code>:</p>
+      <pre>
+server:
+  port: 8082  # Choose an available port
+
+spring:
+  application:
+    name: new-service</pre>
+
+      <h3>4. Docker Integration</h3>
+      <p>Add the service to <code>docker-compose.yml</code>:</p>
+      <pre>
+new-service:
+  build: ./new-service
+  ports:
+    - "8082:8082"
+  depends_on:
+    - config-server
+    - eureka</pre>
+
+      <h3>5. Create Dockerfile</h3>
+      <pre>
+FROM eclipse-temurin:21-jdk
+COPY target/*.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]</pre>
+      
+      <a class="cta" href="https://github.com/leandrocustodiop/microstack-spring" target="_blank" rel="noreferrer">View Source on GitHub →</a>
+    </section>
+
+    <footer>© 2025 Leandro. <a href="../index.html">Back to Portfolio</a></footer>
+  </div>
+</body>
+</html>
