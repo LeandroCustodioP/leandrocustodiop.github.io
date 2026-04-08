@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Modern Data Stack — Data Processing and Visualization</title>
+  <meta name="description" content="A project integrating modern tools for data processing, transformation, and visualization using DBT and Evidence." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <nav><a href="../index.html">← Back to Portfolio</a></nav>
+    </header>
+
+    <h1>Modern Data Stack</h1>
+    <p class="lead">An integrated project for modern data processing, transformation, and visualization using DBT and Evidence.</p>
+
+    <section>
+      <h2>Project Overview</h2>
+      <div class="project-images">
+        <img src="../assets/img/modern-data-stack/dashboard_de_vendas.png" alt="Dashboard de Vendas" class="project-image">
+        <img src="../assets/img/modern-data-stack/minio_object_store.png" alt="MinIO Object Store" class="project-image">
+      </div>
+      <p>The Modern Data Stack provides a structured and scalable environment for data analysis, integrating tools like DBT for data transformation and Evidence for visualization.</p>
+    </section>
+
+    <section>
+      <h2>Key Features</h2>
+      <ul>
+        <li>Data transformation with DBT</li>
+        <li>Data visualization with Evidence</li>
+        <li>Scalable and structured data analysis environment</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Getting Started</h2>
+      <h3>Prerequisites</h3>
+      <ul>
+        <li>Python 3.12</li>
+        <li>Virtualenv</li>
+        <li>Docker (optional, if needed in the future)</li>
+      </ul>
+
+      <h3>Setup</h3>
+      <p>Clone the repository:</p>
+      <pre>git clone git@github.com:LeandroCustodioP/modern-data-stack.git
+cd modern-data-stack</pre>
+
+      <p>Create and activate a virtual environment:</p>
+      <pre>python3 -m venv venv
+source venv/bin/activate</pre>
+
+      <p>Install dependencies:</p>
+      <pre>pip install -r requirements.txt</pre>
+    </section>
+
+    <section>
+      <h2>How to Run</h2>
+      <p>Run the data generation script:</p>
+      <pre>python scripts/generator.py</pre>
+
+      <p>Run the data ingestion or transformation scripts:</p>
+      <pre>python scripts/ingestion.py</pre>
+
+      <p>Transform data with DBT:</p>
+      <pre>dbt run --project-dir dbt/ecommerce_transform</pre>
+
+      <p>Visualize data with Evidence:</p>
+      <pre>
+cd evidence_project
+npm install
+npm run dev</pre>
+      <p>Access Evidence in your browser at: <a href="http://localhost:3001">http://localhost:3001</a></p>
+    </section>
+
+    <footer>© 2026 Leandro. <a href="../index.html">Back to Portfolio</a></footer>
+  </div>
+</body>
+</html>
